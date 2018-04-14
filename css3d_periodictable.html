@@ -103,6 +103,8 @@
 		<script src="js/libs/tween.min.js"></script>
 		<script src="js/controls/TrackballControls.js"></script>
 		<script src="js/renderers/CSS3DRenderer.js"></script>
+		<script src="build/d3.js"></script>
+        <script src="build/d3.tip.js"></script>
 
 		<div id="info"><a href="http://threejs.org" target="_blank" rel="noopener">three.js css3d</a> - periodic table. <a href="https://plus.google.com/113862800338869870683/posts/QcFk5HrWran" target="_blank" rel="noopener">info</a>.</div>
 		<div id="container"></div>
@@ -114,7 +116,12 @@
 		</div>
 
 		<script>
+			var table;
 
+			d3.csv("test.csv", function(error, data) { table=data; });
+			//table.length=118;
+
+/*
 			var table = [
 				"H", "Hydrogen", "1.00794", 1, 1,
 				"He", "Helium", "4.002602", 18, 1,
@@ -235,6 +242,7 @@
 				"Ts", "Tennessine", "(294)", 17, 7,
 				"Og", "Oganesson", "(294)", 18, 7
 			];
+			*/
 
 			var camera, scene, renderer;
 			var controls;
@@ -254,7 +262,7 @@
 
 				// table
 
-				for ( var i = 0; i < table.length; i += 5 ) {
+				for ( var i = 0; i < 118; i ++ ) {
 
 					var element = document.createElement( 'div' );
 					element.className = 'element';
@@ -262,17 +270,17 @@
 
 					var number = document.createElement( 'div' );
 					number.className = 'number';
-					number.textContent = (i/5) + 1;
+					number.textContent = i+1;
 					element.appendChild( number );
 
 					var symbol = document.createElement( 'div' );
 					symbol.className = 'symbol';
-					symbol.textContent = table[ i ];
+					symbol.textContent = table[ i ].A;
 					element.appendChild( symbol );
 
 					var details = document.createElement( 'div' );
 					details.className = 'details';
-					details.innerHTML = table[ i + 1 ] + '<br>' + table[ i + 2 ];
+					details.innerHTML = table[ i ].B + '<br>' + table[ i ].C;
 					element.appendChild( details );
 
 					var object = new THREE.CSS3DObject( element );
@@ -286,8 +294,8 @@
 					//
 
 					var object = new THREE.Object3D();
-					object.position.x = ( table[ i + 3 ] * 140 ) - 1330;
-					object.position.y = - ( table[ i + 4 ] * 180 ) + 990;
+					object.position.x = ( table[ i ].D * 140 ) - 1330;
+					object.position.y = - ( table[ i ].E * 180 ) + 990;
 
 					targets.table.push( object );
 
