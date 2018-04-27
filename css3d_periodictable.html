@@ -116,10 +116,10 @@
 		</div>
 
 		<script>
-			var table = new Array(118);
+			var table = new Array(98);
 
-			d3.csv("csv/test.csv", function(error, data) { 
-				table=data; 
+			d3.csv("csv/test.csv", function(error, data) {
+				table=data;
 				visualizing();
 			});
 			//table.length=118;
@@ -143,7 +143,7 @@
 
 					// table
 
-					for ( var i = 0; i < 118; i ++ ) {
+					for ( var i = 0; i < 98; i ++ ) {
 
 						var element = document.createElement( 'div' );
 						element.className = 'element';
@@ -154,9 +154,14 @@
 						number.textContent = i+1;
 						element.appendChild( number );
 
-						var symbol = document.createElement( 'div' );
+						var symbol = document.createElement( 'img' );
+						symbol.setAttribute('src', table[i].A);
+            symbol.setAttribute('alt', 'na');
+          //  symbol.setAttribute('height', '120px');
+            symbol.setAttribute('width', '80px');
 						symbol.className = 'symbol';
-						symbol.textContent = table[ i ].A;
+						document.body.appendChild(symbol);
+						//symbol.textContent = table[ i ].A;
 						element.appendChild( symbol );
 
 						var details = document.createElement( 'div' );
