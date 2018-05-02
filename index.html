@@ -50,7 +50,7 @@
 				left:50px;
 				bottom: 0px;
 				width: 350px;				
-				height: 650px;
+				height: 500px;
 				border: 1px solid rgba(127,255,255,0.25);
 				color: rgba(127,255,255,0.75);
 				padding: 20px;
@@ -64,14 +64,14 @@
 
 			#Prof {
 
-				font-size: 30px;
+				font-size: 20px;
 				color: rgba(127,255,255,0.75);
 
 			}
 
 			#ProfInfo {
 
-				font-size: 18px;
+				font-size: 13px;
 				color: rgba(127,255,255,0.5);
 
 			}
@@ -244,7 +244,7 @@
 
 			function profinfo(i) {
 				$("#Prof").html(table[i].B);
-				var html = "<img src='"+table[i].A+"' alt='na' width='170px' class='symbol'>"
+				var html = "<img src='"+table[i].A+"' alt='na' width='120px' class='symbol'>"
 					+"</br></br>Departments: </br>"+table[i].D1+"</br>"+table[i].D2+ "</br>"+table[i].D3
 					+"</br></br> Research Fields: </br>"+table[i].R1+"</br>"+table[i].R2+ "</br>"+table[i].R3+"</br>"+table[i].R4+ "</br>"+table[i].R5
 					+"</br></br> <a href ='" + table[i].Homepage+ "'> Homepage </a>"
