@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<script>
+
 function find_related(idx, table) //idx is the index of professor 1
 {
 	var relation_array = [];
-	for ( var i = 0; i < 98; i ++ ) 
+	for ( var i = 0; i < 115; i ++ ) 
 	{
 		if (i != idx) 
 		{
@@ -43,21 +42,23 @@ function find_related(idx, table) //idx is the index of professor 1
 			}			
 		}
 	}
+
+	relation_array.push(idx);
+	relation_array.push(table[idx].R1);
 	return relation_array;
 }
 
 function department_range(idx) //idx of professor
 {
-	if(idx >= 0 && idx <= 27)
-		return [0, 27];
-	if(idx >27 && idx <= 51)
-		return [28, 51];
-	if(idx > 51 && idx <= 56)
-		return [52, 56];
-	if(idx > 56 && idx <= 97)
-		return [57, 97];
+	if(idx >= 0 && idx <= 28)
+		return [0, 28];
+	if(idx >28 && idx <= 53)
+		return [29, 53];
+	if(idx > 53 && idx <= 95)
+		return [54, 95];
+	if(idx > 95 && idx <= 118)
+		return [96, 118];
 	else
 		return -1;
 }
-</script>
 
